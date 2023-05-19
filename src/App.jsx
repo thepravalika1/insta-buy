@@ -29,6 +29,13 @@ export default function App() {
   const handleAddToCart=(item)=>{
     setCartItems({...cartItems,...item})
   }
+  const handle=()=>{
+    localStorage.clear()
+    navigate('/login')
+            setUser('')
+            
+            
+  }
 
    return (
     <div>
@@ -45,7 +52,7 @@ export default function App() {
         <Navbar.Collapse className="justify-content-end">
           {user && <Button onClick={()=>navigate('/cart')}>Cart &nbsp; {Object.keys(cartItems).length >0 &&(<Badge bg='red'>{Object.keys(cartItems).length}</Badge>)}</Button>}
           &nbsp;&nbsp;&nbsp;
-          <Button onClick={()=>navigate('/login')} style={{padding:'0.4rem 2rem'}}>{user ? 'LogOut':'Login'}</Button>
+          <Button onClick={()=>handle()} style={{padding:'0.4rem 2rem'}}>{user ? 'LogOut':'Login'}</Button>
         </Navbar.Collapse>
       </Navbar>
       <Routes>

@@ -16,12 +16,14 @@ import { useNavigate } from "react-router-dom"
 export default function Home({user}){
     const navigate=useNavigate();
     const handleCTAClick=()=>{
-        if(user){
+        const userEmail=localStorage.getItem('userEmail')
+        if(userEmail){
             navigate('/products')
             
             
         }
         else{
+            alert('please login')
             navigate('/login')
         }
     }
